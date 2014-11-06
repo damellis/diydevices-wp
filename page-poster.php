@@ -16,9 +16,6 @@ while ( have_posts() ) : the_post();
 </div>
 
 <div id="menu">
-<?php
-the_title('<h1>', '</h1>');
-?>
 
 <?php
 $pages = get_pages( array('parent' => $post->ID, 'post_type' => 'page', 'sort_column' => 'menu_order') );
