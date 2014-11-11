@@ -176,6 +176,16 @@ p {
 	margin-bottom: 18px;
 }
 
+p.warning {
+	padding: 18px;
+	background-color: #d55;
+}
+
+p.warning:before {
+	content: "Warning!";
+	font-weight: bold;
+}
+
 .caption {
 	margin-top: -18px;
 }
