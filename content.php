@@ -10,4 +10,5 @@ if ( is_search() ) :
 else :
 	the_content('Read more...');
 endif;
+	the_date('l, F j, Y', '<i>', '</i>');
 ?>

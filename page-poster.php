@@ -11,7 +11,7 @@ while ( have_posts() ) : the_post();
 ?>
 
 <div id="poster">
-<?php echo get_the_post_thumbnail( $post->ID, array(814,814)) ?>
+<?php echo get_the_post_thumbnail( $post->ID, 'full-width' ) ?>
 <?php the_title('<h1>', '</h1>'); ?>
 </div>
 

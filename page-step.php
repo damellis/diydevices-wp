@@ -15,11 +15,10 @@ $parents = get_post_ancestors( $post->ID );
 if ($parents) {
 	$id = $parents[count($parents)-1];
 	$image_id = get_post_thumbnail_id($id);
-	$image_url = wp_get_attachment_image_src($image_id, array(814,814), true);
+	$image_url = wp_get_attachment_image_src($image_id, 'full-width', true);
 ?>
 
-<a id="poster" href="<?php echo get_permalink($id); ?>" style="display: block; height: 190px; background-image: url(<?php echo $image_url[0]; ?>); background-size: 818px Auto; background-position: 0px -120px;">
-<?php echo '<h1>' . get_the_title( $id ) . '</h1></a>'; ?>
+<a id="poster" href="<?php echo get_permalink($id); ?>" style="background-image: url(<?php echo $image_url[0]; ?>);"><h1><?php echo get_the_title( $id ); ?></h1></a>
 
 <div id="menu">
 
@@ -34,11 +33,11 @@ if ($parents) {
 		else echo '</a>';
 		echo '</h2>';
 	}
-	echo '</div>';
 	wp_reset_query();
 }
 ?>
 
+</div>
 <div class="main">
 
 <?php

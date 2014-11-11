@@ -21,9 +21,11 @@
 <?php
 $pages = get_pages( array( 'post_type' => 'page', 'parent' => 0, 'sort_column' => 'menu_order' ) );
 foreach ($pages as $page) {
-	echo '<a href="' . get_page_link($page->ID) . '"><h2>';
-	echo $page->post_title;
-	echo '</h2></a>';
+	if ($page->ID != get_option('page_on_front')) {
+		echo '<a href="' . get_page_link($page->ID) . '"><h2>';
+		echo $page->post_title;
+		echo '</h2></a>';
+	}
 }
 $links = get_bookmarks();
 foreach ($links as $link) {
