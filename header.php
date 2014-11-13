@@ -3,7 +3,7 @@
 <style>
 
 </style>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
+<title><?php wp_title( '|', true, 'right' ); echo get_bloginfo( 'name' ); ?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style.css" />
 
 <?php if ( is_page_template('page-poster.php')) : ?>
