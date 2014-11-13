@@ -22,8 +22,6 @@ body {
 #header {
 	border-bottom: 1px solid black;
 	margin-bottom: 18px;
-	font-size: 18px;
-	line-height: 24px;
 }
 
 #name {
@@ -32,6 +30,8 @@ body {
 	display: inline-block;
 	width: 198px;
 	margin-right: 18px;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 #header a {
@@ -42,6 +42,42 @@ body {
 #header h2 {
 	display: inline;
 	margin-right: 2em;
+}
+
+#header ul {
+	text-align: left;
+	list-style: none;
+	display: inline;
+	padding: 0px;
+}
+
+#header ul li {
+	position: relative;
+	display: inline;
+	margin-left: 0px;
+	padding-bottom: 3px;
+}
+
+#header ul li ul {
+	position: absolute;
+	top: 100%;
+	left: -9px;
+	display: none;
+	opacity: 0;
+	background-color: white;
+	border: 1px solid black;
+	width: 214px;
+}
+
+#header ul li ul li {
+	display: block;
+	margin: 9px;
+}
+
+#header ul li:hover ul {
+	display: block;
+	opacity: 1;
+	z-index: 1;
 }
 
 .card {
@@ -75,6 +111,10 @@ h1 {
 	font-size: 18px;
 	line-height: 18px;
 	margin-bottom: 18px;
+}
+
+h1 a {
+	color: black;
 }
 
 h2 {

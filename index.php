@@ -1,13 +1,7 @@
 <?php get_header(); ?>
 
 <div id="menu">
-<?php
-$page = get_post( get_option('page_on_front') );
-if ($page) {
-	echo '<h1>' . $page->post_title . '</h1>';
-	echo $page->post_content;
-}
-?>
+<?php get_sidebar('index'); ?>
 </div>
 
 <div class="main">
@@ -24,5 +18,4 @@ endif;
 </div>
 
 <?php
-get_sidebar();
 get_footer();

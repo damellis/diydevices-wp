@@ -10,7 +10,7 @@ if (!empty($pagelist)) {
 	// otherwise link to previous and next children of the page's parent
 	$parents = get_post_ancestors( $post->ID );
 	if ($parents) {
-		$id = $parents[count($parents)-1];
+		$id = $parents[0];
 		$pagelist = get_pages( array('sort_column' => 'menu_order', 'sort_order' => 'asc', 'parent' => $id) );
 	}
 	$pages = array();

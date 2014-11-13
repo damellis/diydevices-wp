@@ -38,6 +38,5 @@ endwhile;
 </div>
 
 <?php
-get_sidebar();
 get_footer();
 

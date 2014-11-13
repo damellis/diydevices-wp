@@ -13,7 +13,7 @@ while ( have_posts() ) : the_post();
 <?php
 $parents = get_post_ancestors( $post->ID );
 if ($parents) {
-	$id = $parents[count($parents)-1];
+	$id = $parents[count($parents)-2];
 	$image_id = get_post_thumbnail_id($id);
 	$image_url = wp_get_attachment_image_src($image_id, 'full-width', true);
 ?>
@@ -49,6 +49,5 @@ endwhile;
 </div>
 
 <?php
-get_sidebar();
 get_footer();
 

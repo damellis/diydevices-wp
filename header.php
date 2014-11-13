@@ -17,21 +17,35 @@
 <div id="all">
 
 <div id="header">
-<span id="name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-<?php
+<span id="name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span><?php
+echo '<ul>';
 $pages = get_pages( array( 'post_type' => 'page', 'parent' => 0, 'sort_column' => 'menu_order' ) );
 foreach ($pages as $page) {
 	if ($page->ID != get_option('page_on_front')) {
-		echo '<a href="' . get_page_link($page->ID) . '"><h2>';
+		echo '<li><a href="' . get_page_link($page->ID) . '"><h2>';
 		echo $page->post_title;
 		echo '</h2></a>';
+
+		$subpages = get_pages( array( 'post_type' => 'page', 'parent' => $page->ID, 'sort_column' => 'menu_order' ) );
+		if ($subpages) {
+			echo '<ul>';
+			foreach ($subpages as $subpage) {
+				echo '<li><a href="' . get_page_link($subpage->ID) . '">';
+				echo $subpage->post_title;
+				echo '</a></li>';
+			}
+			echo '</ul>';
+		}
+
+		echo '</li>';
 	}
 }
 $links = get_bookmarks();
 foreach ($links as $link) {
-	echo '<a href="' . $link->link_url . '"><h2>';
+	echo '<li><a href="' . $link->link_url . '"><h2>';
 	echo $link->link_name;
-	echo ' &raquo;</h2></a>';
+	echo ' &raquo;</h2></a></li>';
 }
+echo '</ul>';
 ?>
 </div>
