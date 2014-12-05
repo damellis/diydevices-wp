@@ -19,7 +19,7 @@ function show_thumbnails($page) {
 	foreach ($subpages as $subpage) {
 		echo '<a class="card" href="' . get_permalink( $subpage->ID ) . '">';
 		echo get_the_post_thumbnail( $subpage->ID, 'quarter-width' );
-		echo '<h1>' . $subpage->post_title . '</h1>';
+		echo '<span>' . $subpage->post_title . '</span>';
 		echo '</a>';
 	}
 }

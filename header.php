@@ -1,8 +1,6 @@
-<html <?php language_attributes(); ?>>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<style>
-
-</style>
 <title><?php wp_title( '|', true, 'right' ); echo get_bloginfo( 'name' ); ?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style.css" />
 
@@ -22,9 +20,9 @@ echo '<ul>';
 $pages = get_pages( array( 'post_type' => 'page', 'parent' => 0, 'sort_column' => 'menu_order' ) );
 foreach ($pages as $page) {
 	if ($page->ID != get_option('page_on_front')) {
-		echo '<li><a href="' . get_page_link($page->ID) . '"><h2>';
+		echo '<li><h2><a href="' . get_page_link($page->ID) . '">';
 		echo $page->post_title;
-		echo '</h2></a>';
+		echo '</a></h2>';
 
 		$subpages = get_pages( array( 'post_type' => 'page', 'parent' => $page->ID, 'sort_column' => 'menu_order' ) );
 		if ($subpages) {
@@ -42,9 +40,9 @@ foreach ($pages as $page) {
 }
 $links = get_bookmarks();
 foreach ($links as $link) {
-	echo '<li><a href="' . $link->link_url . '"><h2>';
+	echo '<li><h2><a href="' . $link->link_url . '">';
 	echo $link->link_name;
-	echo ' &raquo;</h2></a></li>';
+	echo ' &raquo;</a></h2></li>';
 }
 echo '</ul>';
 ?>
